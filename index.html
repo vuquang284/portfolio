@@ -1,6 +1,794 @@
 
 <!DOCTYPE html>
 <html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vu Truong | Mechanical Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Vu Truong, a Mechanical Engineering student focused on mechanical design, CAD, prototyping, fabrication, hardware integration, and testing." />
+
+  <style>
+    :root {
+      --bg: #fff8f2;
+      --card: #fffdfb;
+      --text: #1f2933;
+      --muted: #6f6259;
+      --line: #ead8c8;
+      --accent: #e86f1d;
+      --accent-light: #fff0e6;
+      --shadow: 0 18px 40px rgba(80, 45, 20, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 248, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+    }
+
+    .logo img {
+      height: 80px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 80px 0 55px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 6vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 26px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--text);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: white;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .photo-placeholder {
+      aspect-ratio: 4 / 3;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #f4d7bf, #fff3e8);
+      border: 1px dashed #d6a27d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+      font-size: 0.95rem;
+    }
+
+    .hero-card small {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 52px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p {
+      max-width: 520px;
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .skill-card,
+    .project-card,
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .skill-card {
+      padding: 22px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .projects {
+      display: grid;
+      gap: 22px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .project-media {
+      min-height: 280px;
+      background: var(--accent-light);
+      padding: 18px;
+      display: grid;
+      align-content: center;
+    }
+
+    .project-content {
+      padding: 28px;
+    }
+
+    .project-content h3 {
+      font-size: 1.45rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+
+    .project-details {
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .project-details summary {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--accent);
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    .project-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .project-details summary::after {
+      content: "+";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .project-details[open] summary::after {
+      content: "–";
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 18px 0;
+    }
+
+    .detail-box {
+      background: #fffaf5;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .detail-box h4 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .detail-box ul {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .detail-box li {
+      margin-bottom: 6px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .image-grid .photo-placeholder {
+      min-height: 150px;
+      aspect-ratio: 1 / 1;
+      font-size: 0.82rem;
+      padding: 14px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .about-card,
+    .contact-card {
+      padding: 28px;
+    }
+
+    .about-card {
+      background: var(--text);
+      color: white;
+      border-radius: 24px;
+    }
+
+    .about-card p {
+      color: rgba(255, 255, 255, 0.78);
+      margin-top: 12px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin: 10px 0 18px;
+    }
+
+    footer {
+      padding: 36px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .project-card,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 10px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top" aria-label="Vu Truong Home">
+          <img src="assets/vt-logo.png" alt="Vu Truong logo" />
+        </a>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="container hero">
+      <div>
+        <span class="eyebrow">Mechanical Engineering</span>
+        <h1>Vu Truong</h1>
+        <p>
+          I am a Mechanical Engineering student at the University of Maryland with experience in CAD, rapid prototyping,
+          fabrication, hardware integration, testing, and hands-on problem solving. My work spans autonomous systems,
+          mechanical design, and real hardware development, with skills that transfer across product development,
+          manufacturing, mechatronics, test engineering, and field engineering roles.
+        </p>
+        <div class="button-row">
+          <a class="button primary" href="Vu_Truong_Resume.pdf" target="_blank">View Resume</a>
+          <a class="button secondary" href="mailto:vuqtruongedu@gmail.com">Email Me</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="photo-placeholder">
+          Replace with your best hero image:<br />drone, CAD render, shop photo, or field testing photo
+        </div>
+        <small>Suggested file path: <strong>assets/hero-photo.jpg</strong></small>
+      </div>
+    </div>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Core Skills</h2>
+          <p>Hands-on engineering skills developed through design projects, technical leadership, prototyping, integration work, and real hardware testing.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Mechanical Design</h3>
+            <p>CAD, component design, assemblies, fit checks, design iteration, and prototype development.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Prototyping</h3>
+            <p>3D printing, fabrication, shop work, part preparation, and physical testing.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Systems & Testing</h3>
+            <p>Subsystem integration, bench testing, field testing, troubleshooting, documentation, and iterative improvement.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Hardware Integration</h3>
+            <p>Mechanical assemblies, electrical hardware, sensors, wiring, packaging, troubleshooting, and system-level fitment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Projects</h2>
+        </div>
+
+        <div class="projects">
+          <article class="project-card" id="muas">
+            <div class="project-media">
+              <div class="photo-placeholder">
+                Replace with MUAS aircraft / CAD / assembly photo<br />Suggested: assets/muas.jpg
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="meta">Maryland Unmanned Aerial Systems | Team Captain</div>
+              <h3>Autonomous Aircraft Development for RoboNation SUAS</h3>
+              <p>
+                Lead work with Maryland Unmanned Aerial Systems, a student engineering team developing an autonomous aircraft for the
+                RoboNation SUAS competition. Responsibilities include coordinating technical progress, supporting mechanical
+                and airframe work, and helping connect mechanical, electrical, and software subteam efforts.
+              </p>
+              <p>
+                The project involves real hardware development, mechanical packaging constraints, payload considerations, sensor integration,
+                documentation, and testing preparation.
+              </p>
+              <div class="tag-row">
+                <span class="tag">CAD</span>
+                <span class="tag">Airframe</span>
+                <span class="tag">Hardware Integration</span>
+                <span class="tag">Autonomous Systems</span>
+                <span class="tag">Team Leadership</span>
+              </div>
+
+              <details class="project-details">
+                <summary>View project details</summary>
+                <p>
+                  MUAS is a student-run engineering team focused on designing, building, integrating, and testing a competition aircraft for the RoboNation SUAS competition. My work spans technical leadership, mechanical planning, subsystem coordination, integration support, and helping the team move from design decisions to real hardware.
+                </p>
+                <div class="detail-grid">
+                  <div class="detail-box">
+                    <h4>My Role</h4>
+                    <ul>
+                      <li>Coordinate weekly technical progress across mechanical, electrical, and software efforts.</li>
+                      <li>Support airframe configuration decisions and hardware integration planning.</li>
+                      <li>Help translate competition requirements into aircraft subsystem priorities.</li>
+                      <li>Work with team members on fit checks, assembly planning, testing readiness, and documentation.</li>
+                    </ul>
+                  </div>
+                  <div class="detail-box">
+                    <h4>Relevant Skills</h4>
+                    <ul>
+                      <li>Mechanical design and CAD-based iteration.</li>
+                      <li>Subsystem integration and packaging constraints.</li>
+                      <li>Test planning, documentation, and field-readiness preparation.</li>
+                      <li>Technical communication across multidisciplinary teams.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="image-grid">
+                  <div class="photo-placeholder">MUAS aircraft photo<br />assets/muas-1.jpg</div>
+                  <div class="photo-placeholder">CAD / airframe screenshot<br />assets/muas-2.jpg</div>
+                  <div class="photo-placeholder">Assembly / wiring photo<br />assets/muas-3.jpg</div>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="project-card" id="crossfire">
+            <div class="project-media">
+              <div class="photo-placeholder">
+                Replace with Crossfire drone / payload / field photo<br />Suggested: assets/crossfire.jpg
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="meta">UMD xFoundry Crossfire | Wildfire Response</div>
+              <h3>Autonomous Drone Development for Wildfire Response</h3>
+              <p>
+                Worked as part of the Crossfire team on hardware and system development for wildfire response applications.
+                The project involves integrating mechanical hardware, sensing, autonomy, and payload concepts into a system
+                intended to operate in real field conditions.
+              </p>
+              <p>
+                This work strengthened my experience with mechanical integration, payload concepts, field-focused design, testing preparation,
+                and coordination across mechanical, electrical, software, and perception-related requirements.
+              </p>
+              <div class="tag-row">
+                <span class="tag">PX4</span>
+                <span class="tag">ROS2</span>
+                <span class="tag">Payload Design</span>
+                <span class="tag">Field Testing</span>
+                <span class="tag">Hardware Integration</span>
+              </div>
+
+              <details class="project-details">
+                <summary>View project details</summary>
+                <p>
+                  Crossfire is focused on wildfire response technology, combining hardware, sensing, autonomy, and payload deployment concepts. My contribution is centered around connecting mechanical hardware decisions with system-level requirements, testing needs, and practical integration constraints.
+                </p>
+                <div class="detail-grid">
+                  <div class="detail-box">
+                    <h4>My Role</h4>
+                    <ul>
+                      <li>Support mechanical integration for payload-related and system hardware.</li>
+                      <li>Work with sensing, autonomy, and packaging requirements when considering hardware layout.</li>
+                      <li>Assist with system-level planning for deployment, testing, and operation in field conditions.</li>
+                      <li>Contribute to testing preparation and practical design decisions around real hardware constraints.</li>
+                    </ul>
+                  </div>
+                  <div class="detail-box">
+                    <h4>Relevant Skills</h4>
+                    <ul>
+                      <li>System integration across mechanical, electrical, and software requirements.</li>
+                      <li>Payload integration and mechanical packaging.</li>
+                      <li>Field testing mindset for systems operating outside lab conditions.</li>
+                      <li>Cross-functional collaboration with software, perception, and hardware contributors.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="image-grid">
+                  <div class="photo-placeholder">Crossfire drone photo<br />assets/crossfire-1.jpg</div>
+                  <div class="photo-placeholder">Payload / mechanism photo<br />assets/crossfire-2.jpg</div>
+                  <div class="photo-placeholder">Testing / field photo<br />assets/crossfire-3.jpg</div>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="project-card" id="prototyping">
+            <div class="project-media">
+              <div class="photo-placeholder">
+                Replace with CAD / 3D printed parts / prototype photo<br />Suggested: assets/prototyping.jpg
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="meta">CAD, 3D Printing & Fabrication</div>
+              <h3>Prototype Parts and Mechanical Design Work</h3>
+              <p>
+                Designed and fabricated prototype components for mechanical and electromechanical systems using CAD and 3D printing.
+                Work included part modeling, design iteration, fit-checking, assembly constraints, and preparing physical parts
+                for testing or integration.
+              </p>
+              <p>
+                I enjoy moving from design intent to physical hardware, especially when parts need to be revised quickly based on
+                real assembly feedback.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Fusion 360</span>
+                <span class="tag">SolidWorks</span>
+                <span class="tag">FDM Printing</span>
+                <span class="tag">Fit Checks</span>
+                <span class="tag">Design Iteration</span>
+              </div>
+
+              <details class="project-details">
+                <summary>View project details</summary>
+                <p>
+                  This section highlights hands-on mechanical design work across technical and academic projects, especially the process of turning rough requirements into parts that can be modeled, printed, assembled, tested, and revised.
+                </p>
+                <div class="detail-grid">
+                  <div class="detail-box">
+                    <h4>Workflow</h4>
+                    <ul>
+                      <li>Define geometry around mounting, clearance, packaging, and manufacturing constraints.</li>
+                      <li>Create CAD models and assemblies for prototype components.</li>
+                      <li>3D print parts for physical fit checks and rapid iteration.</li>
+                      <li>Revise designs based on assembly feedback and hardware limitations.</li>
+                    </ul>
+                  </div>
+                  <div class="detail-box">
+                    <h4>What This Shows</h4>
+                    <ul>
+                      <li>Ability to move from CAD to real hardware.</li>
+                      <li>Comfort with imperfect first prototypes and iteration.</li>
+                      <li>Understanding of tolerances, mounting, access, and fitment issues.</li>
+                      <li>Hands-on mechanical problem solving.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="image-grid">
+                  <div class="photo-placeholder">CAD screenshot<br />assets/prototype-1.jpg</div>
+                  <div class="photo-placeholder">3D printed part<br />assets/prototype-2.jpg</div>
+                  <div class="photo-placeholder">Fit-check / assembly<br />assets/prototype-3.jpg</div>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="project-card" id="integration">
+            <div class="project-media">
+              <div class="photo-placeholder">
+                Replace with wiring / bench testing / electronics photo<br />Suggested: assets/integration.jpg
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="meta">Hardware Integration & Testing</div>
+              <h3>Mechanical, Electrical, Sensor, and Controls Integration</h3>
+              <p>
+                Integrated hardware for technical systems, including controllers, GPS, communication modules,
+                sensing hardware, power systems, and onboard computing. Experience includes wiring, troubleshooting, bench testing,
+                packaging, and preparing systems for field or lab operation.
+              </p>
+              <p>
+                Although many of my projects have involved autonomous platforms, the engineering workflow is broadly transferable: careful integration,
+                testing, documentation, troubleshooting, and iteration around real hardware constraints.
+              </p>
+              <div class="tag-row">
+                <span class="tag">ArduPilot</span>
+                <span class="tag">MAVLink</span>
+                <span class="tag">Sensors</span>
+                <span class="tag">Power Systems</span>
+                <span class="tag">Troubleshooting</span>
+              </div>
+
+              <details class="project-details">
+                <summary>View project details</summary>
+                <p>
+                  This work focuses on the practical side of engineering: making sensors, power systems, controllers, radios, onboard computers, and mechanical packaging work together reliably enough for testing.
+                </p>
+                <div class="detail-grid">
+                  <div class="detail-box">
+                    <h4>My Role</h4>
+                    <ul>
+                      <li>Support integration of flight controllers, GPS, radios, sensors, power modules, and onboard compute.</li>
+                      <li>Plan hardware layouts around mounting, access, wiring paths, cooling, and serviceability.</li>
+                      <li>Assist with bench testing and troubleshooting before field operation.</li>
+                      <li>Work across mechanical and electrical constraints during system assembly.</li>
+                    </ul>
+                  </div>
+                  <div class="detail-box">
+                    <h4>Transferable Skills</h4>
+                    <ul>
+                      <li>Subsystem integration and clear documentation.</li>
+                      <li>Power, sensor, and communication hardware organization.</li>
+                      <li>Bench testing before deployment.</li>
+                      <li>Iterating around real-world constraints, not just ideal CAD models.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="image-grid">
+                  <div class="photo-placeholder">Wiring / avionics photo<br />assets/integration-1.jpg</div>
+                  <div class="photo-placeholder">Bench testing setup<br />assets/integration-2.jpg</div>
+                  <div class="photo-placeholder">Sensor / controller layout<br />assets/integration-3.jpg</div>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Contact</h2>
+          <p>Interested in mechanical design, product development, prototyping, manufacturing, test engineering, mechatronics, robotics, and hardware integration roles.</p>
+          <p><strong>Email:</strong> <a href="mailto:vuqtruongedu@gmail.com">vuqtruongedu@gmail.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vu-qtruong/" target="_blank">linkedin.com/in/vu-qtruong</a></p>
+          <p><strong>Location:</strong> Beltsville, MD</p>
+          <div class="button-row">
+            <a class="button primary" href="mailto:vuqtruongedu@gmail.com">Get in Touch</a>
+            <a class="button secondary" href="Vu_Truong_Resume.pdf" target="_blank">Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Vu Truong. Mechanical Engineering | Design | Prototyping | Hardware Integration.
+    </div>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
