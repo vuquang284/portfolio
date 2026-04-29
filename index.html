@@ -186,11 +186,6 @@
       letter-spacing: -0.04em;
     }
 
-    .section-heading p {
-      max-width: 520px;
-      color: var(--muted);
-    }
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -236,54 +231,85 @@
       background: var(--accent-light);
       padding: 18px;
       display: grid;
-      align-content: start;
+      align-content: center;
     }
 
-    .project-album {
-      display: grid;
-      gap: 14px;
-      align-content: start;
-    }
-
-    .album-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .album-image,
-    .album-placeholder {
+    .carousel {
+      position: relative;
       width: 100%;
-      border-radius: 22px;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: var(--card);
       border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      padding: 12px;
     }
 
-    .album-image {
-      object-fit: contain;
-      padding: 8px;
-    }
-
-    .album-main {
-      min-height: 280px;
+    .carousel-slide {
+      display: none;
+      width: 100%;
       max-height: 420px;
+      border-radius: 18px;
     }
 
-    .album-thumb {
-      min-height: 150px;
-      max-height: 220px;
+    img.carousel-slide {
+      object-fit: contain;
+      padding: 4px;
     }
 
-    .album-placeholder {
-      display: flex;
+    .carousel-slide.active {
+      display: block;
+    }
+
+    .carousel-placeholder {
+      display: none;
+      min-height: 320px;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: var(--muted);
-      padding: 18px;
-      font-size: 0.9rem;
+      padding: 24px;
+      font-size: 0.95rem;
       background: linear-gradient(135deg, #f4d7bf, #fff3e8);
       border: 1px dashed #d6a27d;
+      border-radius: 18px;
+    }
+
+    .carousel-placeholder.active {
+      display: flex;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(31, 41, 51, 0.75);
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .carousel-btn.prev {
+      left: 12px;
+    }
+
+    .carousel-btn.next {
+      right: 12px;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(31, 41, 51, 0.9);
     }
 
     .project-content {
@@ -442,17 +468,8 @@
         grid-template-columns: 1fr;
       }
 
-      .album-grid,
       .skills-grid {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .section-heading {
-        display: block;
-      }
-
-      .section-heading p {
-        margin-top: 10px;
       }
 
       .nav-links {
@@ -461,8 +478,7 @@
     }
 
     @media (max-width: 520px) {
-      .skills-grid,
-      .album-grid {
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
@@ -549,25 +565,22 @@
         <div class="projects">
           <article class="project-card" id="muas">
             <div class="project-media">
-              <div class="project-album">
-                <div class="album-placeholder album-main">Main aircraft photo<br />assets/muas.jpg</div>
-                <div class="album-grid">
-                  <div class="album-placeholder album-thumb">CAD / airframe screenshot<br />assets/muas-2.jpg</div>
-                  <div class="album-placeholder album-thumb">Assembly / wiring photo<br />assets/muas-3.jpg</div>
-                </div>
+              <div class="carousel">
+                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                <div class="carousel-slide carousel-placeholder active">Main aircraft photo<br />assets/muas.jpg</div>
+                <div class="carousel-slide carousel-placeholder">CAD / airframe screenshot<br />assets/muas-2.jpg</div>
+                <div class="carousel-slide carousel-placeholder">Assembly / wiring photo<br />assets/muas-3.jpg</div>
+                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
               </div>
             </div>
             <div class="project-content">
               <div class="meta">Maryland Unmanned Aerial Systems | Team Captain</div>
               <h3>Autonomous Aircraft Development for RoboNation SUAS</h3>
               <p>
-                Lead work with Maryland Unmanned Aerial Systems, a student engineering team developing an autonomous aircraft for the
-                RoboNation SUAS competition. Responsibilities include coordinating technical progress, supporting mechanical
-                and airframe work, and helping connect mechanical, electrical, and software subteam efforts.
+                Lead work with Maryland Unmanned Aerial Systems, a student engineering team developing an autonomous aircraft for the RoboNation SUAS competition. Responsibilities include coordinating technical progress, supporting mechanical and airframe work, and helping connect mechanical, electrical, and software subteam efforts.
               </p>
               <p>
-                The project involves real hardware development, mechanical packaging constraints, payload considerations, sensor integration,
-                documentation, and testing preparation.
+                The project involves real hardware development, mechanical packaging constraints, payload considerations, sensor integration, documentation, and testing preparation.
               </p>
               <div class="tag-row">
                 <span class="tag">CAD</span>
@@ -608,25 +621,22 @@
 
           <article class="project-card" id="crossfire">
             <div class="project-media">
-              <div class="project-album">
-                <div class="album-placeholder album-main">Main drone / payload photo<br />assets/crossfire.jpg</div>
-                <div class="album-grid">
-                  <div class="album-placeholder album-thumb">Payload / mechanism photo<br />assets/crossfire-2.jpg</div>
-                  <div class="album-placeholder album-thumb">Testing / field photo<br />assets/crossfire-3.jpg</div>
-                </div>
+              <div class="carousel">
+                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                <div class="carousel-slide carousel-placeholder active">Main drone / payload photo<br />assets/crossfire.jpg</div>
+                <div class="carousel-slide carousel-placeholder">Payload / mechanism photo<br />assets/crossfire-2.jpg</div>
+                <div class="carousel-slide carousel-placeholder">Testing / field photo<br />assets/crossfire-3.jpg</div>
+                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
               </div>
             </div>
             <div class="project-content">
               <div class="meta">UMD xFoundry Crossfire | Wildfire Response</div>
               <h3>Autonomous Drone Development for Wildfire Response</h3>
               <p>
-                Worked as part of the Crossfire team on hardware and system development for wildfire response applications.
-                The project involves integrating mechanical hardware, sensing, autonomy, and payload concepts into a system
-                intended to operate in real field conditions.
+                Worked as part of the Crossfire team on hardware and system development for wildfire response applications. The project involves integrating mechanical hardware, sensing, autonomy, and payload concepts into a system intended to operate in real field conditions.
               </p>
               <p>
-                This work strengthened my experience with mechanical integration, payload concepts, field-focused design, testing preparation,
-                and coordination across mechanical, electrical, software, and perception-related requirements.
+                This work strengthened my experience with mechanical integration, payload concepts, field-focused design, testing preparation, and coordination across mechanical, electrical, software, and perception-related requirements.
               </p>
               <div class="tag-row">
                 <span class="tag">PX4</span>
@@ -667,53 +677,53 @@
 
           <article class="project-card" id="prototyping">
             <div class="project-media">
-              <div class="project-album">
-                <div class="album-placeholder album-main">Main robot / system photo<br />assets/frostbyte.jpg</div>
-                <div class="album-grid">
-                  <div class="album-placeholder album-thumb">CAD / chassis screenshot<br />assets/frostbyte-2.jpg</div>
-                  <div class="album-placeholder album-thumb">Assembly / subsystem photo<br />assets/frostbyte-3.jpg</div>
-                </div>
+              <div class="carousel">
+                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                <div class="carousel-slide carousel-placeholder active">Main robot / system photo<br />assets/frostbyte.jpg</div>
+                <div class="carousel-slide carousel-placeholder">CAD / chassis screenshot<br />assets/frostbyte-2.jpg</div>
+                <div class="carousel-slide carousel-placeholder">Assembly / subsystem photo<br />assets/frostbyte-3.jpg</div>
+                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
               </div>
             </div>
             <div class="project-content">
               <div class="meta">Senior Design Capstone Project</div>
               <h3>FrostByte | Autonomous Snow Removal Robot</h3>
               <p>
-                Designed and developed an autonomous snow removal robot as part of a senior design capstone project. The system combined mechanical design, fabrication, controls, hardware integration, and software integration for operation in real outdoor conditions.
+                FrostByte is a senior design capstone project focused on developing an autonomous sidewalk snow removal robot. My work has mainly focused on hardware integration and testing, including bringing together the drivetrain, sensors, power system, and control hardware into a working platform.
               </p>
               <p>
-                The project involved moving from concept to a working system while balancing packaging, drivetrain, sensing, control, and manufacturability constraints.
+                I have also been working with ArduPilot for the robot’s autonomy stack, helping connect hardware and software so the system can support navigation, control, and real-world testing in outdoor conditions.
               </p>
               <div class="tag-row">
-                <span class="tag">Autonomous Systems</span>
-                <span class="tag">Mechanical Design</span>
+                <span class="tag">ArduPilot</span>
                 <span class="tag">Hardware Integration</span>
+                <span class="tag">Testing</span>
                 <span class="tag">Controls</span>
-                <span class="tag">Prototyping</span>
+                <span class="tag">Autonomous Systems</span>
               </div>
 
               <details class="project-details">
                 <summary>View project details</summary>
                 <p>
-                  FrostByte is a senior design capstone project focused on developing an autonomous sidewalk snow removal system. The project includes chassis design, drivetrain selection, controls, sensor integration, system packaging, and testing for operation in a real winter environment.
+                  FrostByte is a senior design capstone project centered on building an autonomous snow removal robot for sidewalk clearing. My main contributions have been in hardware integration and testing, including assembling and connecting the robot’s subsystems and working with ArduPilot to support autonomous operation.
                 </p>
                 <div class="detail-grid">
                   <div class="detail-box">
-                    <h4>Workflow</h4>
+                    <h4>My Role</h4>
                     <ul>
-                      <li>Define system requirements around snow clearing, runtime, safety, and mobility.</li>
-                      <li>Create CAD models and assemblies for the chassis, plow system, and integrated subsystems.</li>
-                      <li>Work across mechanical, electrical, and software decisions during system integration.</li>
-                      <li>Revise the design based on fitment, manufacturability, and real operating constraints.</li>
+                      <li>Integrated drivetrain, power, control, and sensing hardware into the robot platform.</li>
+                      <li>Worked with ArduPilot to support the robot’s autonomy, control, and system communication.</li>
+                      <li>Helped test and troubleshoot subsystem connections, hardware behavior, and overall system operation.</li>
+                      <li>Supported iteration of the robot setup based on integration issues, testing results, and real operating constraints.</li>
                     </ul>
                   </div>
                   <div class="detail-box">
-                    <h4>What This Shows</h4>
+                    <h4>Transferable Skills</h4>
                     <ul>
-                      <li>System-level mechanical design thinking.</li>
-                      <li>Integration of controls, hardware, and software into one platform.</li>
-                      <li>Ability to design around environmental and operational constraints.</li>
-                      <li>Hands-on engineering from concept development through implementation.</li>
+                      <li>Hardware integration across mechanical, electrical, and control systems.</li>
+                      <li>Hands-on testing and troubleshooting of real robotic hardware.</li>
+                      <li>Experience working with ArduPilot for autonomous ground vehicle operation.</li>
+                      <li>System-level thinking under packaging, environmental, and reliability constraints.</li>
                     </ul>
                   </div>
                 </div>
@@ -723,15 +733,12 @@
 
           <article class="project-card" id="integration">
             <div class="project-media">
-              <div class="project-album">
-                <img src="assets/Bozopad_Complete.PNG" alt="Complete BOZOPAD" class="album-image album-main" />
-                <div class="album-grid">
-                  <img src="assets/Bozopad_PCB.PNG" alt="BOZOPAD PCB" class="album-image album-thumb" />
-                  <a href="assets/MKC_Bozopad_Guide.pdf" target="_blank" class="pdf-card album-thumb">
-                    <strong>Assembly Instructions</strong>
-                    <span>View PDF</span>
-                  </a>
-                </div>
+              <div class="carousel">
+                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                <img src="assets/Bozopad_Complete.PNG" alt="Complete BOZOPAD" class="carousel-slide active" />
+                <img src="assets/Bozopad_PCB.PNG" alt="BOZOPAD PCB" class="carousel-slide" />
+                <div class="carousel-slide carousel-placeholder">Assembly Instructions<br />assets/MKC_Bozopad_Guide.pdf</div>
+                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
               </div>
             </div>
             <div class="project-content">
@@ -775,6 +782,12 @@
                     </ul>
                   </div>
                 </div>
+                <div class="resource-row">
+                  <a href="assets/MKC_Bozopad_Guide.pdf" target="_blank" class="pdf-card">
+                    <strong>Assembly Instructions</strong>
+                    <span>View PDF</span>
+                  </a>
+                </div>
               </details>
             </div>
           </article>
@@ -804,5 +817,27 @@
       © 2026 Vu Truong
     </div>
   </footer>
+
+  <script>
+    function moveSlide(button, direction) {
+      const carousel = button.parentElement;
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      let currentIndex = 0;
+
+      slides.forEach((slide, index) => {
+        if (slide.classList.contains('active')) {
+          currentIndex = index;
+        }
+      });
+
+      slides[currentIndex].classList.remove('active');
+
+      let newIndex = currentIndex + direction;
+      if (newIndex < 0) newIndex = slides.length - 1;
+      if (newIndex >= slides.length) newIndex = 0;
+
+      slides[newIndex].classList.add('active');
+    }
+  </script>
 </body>
 </html>
