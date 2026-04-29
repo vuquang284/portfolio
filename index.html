@@ -160,14 +160,7 @@
       box-shadow: var(--shadow);
       border: 1px solid var(--line);
     }
-   
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      border-radius: 22px;
-      object-fit: cover;
-    }
-   
+
     .photo-placeholder {
       aspect-ratio: 4 / 3;
       border-radius: 22px;
@@ -473,7 +466,7 @@
         <h1>Vu Truong</h1>
         <p>
           I am a Mechanical Engineering student at the University of Maryland with experience in CAD, rapid prototyping,
-          fabrication, hardware integration, testing, and hands-on problem solving. My work spans autonomous systems,
+          hardware integration, testing, and hands-on problem solving. My work spans autonomous systems,
           mechanical design, and real hardware development, with skills that transfer across product development,
           manufacturing, mechatronics, test engineering, and field engineering roles.
         </p>
@@ -484,7 +477,10 @@
       </div>
 
       <div class="hero-card">
-          <img src="assets/Headshot.png" alt="Vu Truong headshot" class="hero-image" />
+        <div class="photo-placeholder">
+          Replace with your best hero image:<br />drone, CAD render, shop photo, or field testing photo
+        </div>
+        <small>Suggested file path: <strong>assets/hero-photo.jpg</strong></small>
       </div>
     </div>
 
@@ -501,7 +497,7 @@
           </div>
           <div class="skill-card">
             <h3>Prototyping</h3>
-            <p>3D printing, fabrication, shop work, part preparation, and physical testing.</p>
+            <p>3D printing, soldering, wirings, part preparation, and physical testing.</p>
           </div>
           <div class="skill-card">
             <h3>Systems & Testing</h3>
@@ -704,21 +700,19 @@
 
           <article class="project-card" id="integration">
             <div class="project-media">
-              <div class="photo-placeholder">
-                Replace with wiring / bench testing / electronics photo<br />Suggested: assets/integration.jpg
-              </div>
+              <img src="assets/Bozopad_Complete.png" alt="Complete BOZOPAD" />
             </div>
             <div class="project-content">
               <div class="meta">Personal Project</div>
               <h3>//BOZOPAD//</h3>
               <p>
-                Integrated hardware for technical systems, including controllers, GPS, communication modules,
-                sensing hardware, power systems, and onboard computing. Experience includes wiring, troubleshooting, bench testing,
-                packaging, and preparing systems for field or lab operation.
+                BOZOPAD was a personal hardware project focused on designing a small, functional input 
+                device from the ground up. The project included PCB design, firmware setup, enclosure 
+                design, soldering, assembly, and testing.
               </p>
               <p>
-                Although many of my projects have involved autonomous platforms, the engineering workflow is broadly transferable: careful integration,
-                testing, documentation, troubleshooting, and iteration around real hardware constraints.
+                This project helped me practice the full hardware development process, from design and 
+                part selection to assembly, testing, troubleshooting, and documentation.
               </p>
               <div class="tag-row">
                 <span class="tag">KiCAD</span>
@@ -730,32 +724,36 @@
               <details class="project-details">
                 <summary>View project details</summary>
                 <p>
-                  This work focuses on the practical side of engineering: making sensors, power systems, controllers, radios, onboard computers, and mechanical packaging work together reliably enough for testing.
+                  Designed and built a custom 4x3 macropad, including a through-hole PCB, firmware (QMK) 
+                  and a housing enclosure. Co-developed assembly to support the build process.
+                </p>
                 </p>
                 <div class="detail-grid">
                   <div class="detail-box">
                     <h4>My Role</h4>
                     <ul>
-                      <li>Support integration of flight controllers, GPS, radios, sensors, power modules, and onboard compute.</li>
-                      <li>Plan hardware layouts around mounting, access, wiring paths, cooling, and serviceability.</li>
-                      <li>Assist with bench testing and troubleshooting before field operation.</li>
-                      <li>Work across mechanical and electrical constraints during system assembly.</li>
+                      <li>Designed the through-hole PCB in KiCAD.</li>
+                      <li>Set up and tested QMK firmware for the macropad layout.</li>
+                      <li>Integrated the PCB, switches, keycaps, and housing enclosure into a complete device.</li>
+                      <li>Supported assembly documentation for the build process.</li>
                     </ul>
                   </div>
                   <div class="detail-box">
                     <h4>Transferable Skills</h4>
                     <ul>
-                      <li>Subsystem integration and clear documentation.</li>
-                      <li>Power, sensor, and communication hardware organization.</li>
-                      <li>Bench testing before deployment.</li>
-                      <li>Iterating around real-world constraints, not just ideal CAD models.</li>
+                      <li>PCB design and electronics assembly.</li>
+                      <li>Firmware setup and hardware troubleshooting.</li>
+                      <li>Designing around fitment, assembly, and usability constraints.</li>
+                      <li>Designing around fitment, assembly, and usability constraints.</li>
                     </ul>
                   </div>
                 </div>
                 <div class="image-grid">
-                  <div class="photo-placeholder">Wiring / avionics photo<br />assets/integration-1.jpg</div>
-                  <div class="photo-placeholder">Bench testing setup<br />assets/integration-2.jpg</div>
-                  <div class="photo-placeholder">Sensor / controller layout<br />assets/integration-3.jpg</div>
+                  <img src="assets/Bozopad_PCB.png" alt="BOZOPAD PCB" />
+                  <a href="assets/MKC_Bozopad_Guide.pdf" target="_blank" class="pdf-card">
+                    <strong>Assembly Instructions</strong>
+                    <span>View PDF</span>
+                  </a>
                 </div>
               </details>
             </div>
@@ -768,7 +766,7 @@
       <div class="container">
         <div class="contact-card">
           <h2>Contact</h2>
-          <p>Interested in mechanical design, product development, prototyping, manufacturing, test engineering, mechatronics, robotics, and hardware integration roles.</p>
+          <p>Interested in mechanical design, product development, prototyping, manufacturing, test engineering, mechatronics, robotics, and hardware and software integration roles.</p>
           <p><strong>Email:</strong> <a href="mailto:vuqtruongedu@gmail.com">vuqtruongedu@gmail.com</a></p>
           <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vu-qtruong/" target="_blank">linkedin.com/in/vu-qtruong</a></p>
           <p><strong>Location:</strong> Beltsville, MD</p>
