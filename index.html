@@ -264,22 +264,9 @@
       display: block;
     }
 
-    .carousel-placeholder {
-      display: none;
-      min-height: 320px;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--muted);
-      padding: 24px;
-      font-size: 0.95rem;
-      background: linear-gradient(135deg, #f4d7bf, #fff3e8);
-      border: 1px dashed #d6a27d;
-      border-radius: 18px;
-    }
-
-    .carousel-placeholder.active {
-      display: flex;
+    video.carousel-slide {
+      background: #000;
+      object-fit: contain;
     }
 
     .carousel-btn {
@@ -492,7 +479,7 @@
 <body>
   <header>
     <div class="container">
-      <nav>
+      <nav aria-label="Primary">
         <a class="logo" href="#top" aria-label="Vu Truong Home">
           <img src="assets/vt-logo.png" alt="Vu Truong logo" />
         </a>
@@ -566,11 +553,14 @@
           <article class="project-card" id="muas">
             <div class="project-media">
               <div class="carousel">
-                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
-                <div class="carousel-slide carousel-placeholder active">Main aircraft photo<br />assets/muas.jpg</div>
-                <div class="carousel-slide carousel-placeholder">CAD / airframe screenshot<br />assets/muas-2.jpg</div>
-                <div class="carousel-slide carousel-placeholder">Assembly / wiring photo<br />assets/muas-3.jpg</div>
-                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                <button class="carousel-btn prev" type="button" onclick="moveSlide(this, -1)" aria-label="Previous slide">&#10094;</button>
+                <img src="assets/muas-photo-1-placeholder.jpg" alt="Main aircraft photo" class="carousel-slide active" />
+                <img src="assets/muas-photo-2-placeholder.jpg" alt="CAD / airframe screenshot" class="carousel-slide" />
+                <img src="assets/muas-photo-3-placeholder.jpg" alt="Assembly / wiring photo" class="carousel-slide" />
+                <video src="assets/muas-video-placeholder.mp4" poster="assets/muas-video-poster-placeholder.jpg" class="carousel-slide" controls preload="none">
+                  Your browser does not support embedded video.
+                </video>
+                <button class="carousel-btn next" type="button" onclick="moveSlide(this, 1)" aria-label="Next slide">&#10095;</button>
               </div>
             </div>
             <div class="project-content">
@@ -622,11 +612,14 @@
           <article class="project-card" id="crossfire">
             <div class="project-media">
               <div class="carousel">
-                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
-                <div class="carousel-slide carousel-placeholder active">Main drone / payload photo<br />assets/crossfire.jpg</div>
-                <div class="carousel-slide carousel-placeholder">Payload / mechanism photo<br />assets/crossfire-2.jpg</div>
-                <div class="carousel-slide carousel-placeholder">Testing / field photo<br />assets/crossfire-3.jpg</div>
-                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                <button class="carousel-btn prev" type="button" onclick="moveSlide(this, -1)" aria-label="Previous slide">&#10094;</button>
+                <img src="assets/xfire1.jpg" alt="Suppression drone / payload photo" class="carousel-slide active" />
+                <img src="assets/crossfire-photo-2-placeholder.jpg" alt="Payload / mechanism photo" class="carousel-slide" />
+                <img src="assets/crossfire-photo-3-placeholder.jpg" alt="Testing / field photo" class="carousel-slide" />
+                <video src="assets/crossfire-video-placeholder.mp4" poster="assets/crossfire-video-poster-placeholder.jpg" class="carousel-slide" controls preload="none">
+                  Your browser does not support embedded video.
+                </video>
+                <button class="carousel-btn next" type="button" onclick="moveSlide(this, 1)" aria-label="Next slide">&#10095;</button>
               </div>
             </div>
             <div class="project-content">
@@ -678,15 +671,18 @@
           <article class="project-card" id="prototyping">
             <div class="project-media">
               <div class="carousel">
-                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
-                <div class="carousel-slide carousel-placeholder active">Main robot / system photo<br />assets/frostbyte.jpg</div>
-                <div class="carousel-slide carousel-placeholder">CAD / chassis screenshot<br />assets/frostbyte-2.jpg</div>
-                <div class="carousel-slide carousel-placeholder">Assembly / subsystem photo<br />assets/frostbyte-3.jpg</div>
-                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                <button class="carousel-btn prev" type="button" onclick="moveSlide(this, -1)" aria-label="Previous slide">&#10094;</button>
+                <img src="assets/fb1.jpg" alt="Main robot / system photo" class="carousel-slide active" />
+                <img src="assets/fb2.jpg" alt="CAD / chassis screenshot" class="carousel-slide" />
+                <img src="assets/frostbyte-photo-3-placeholder.jpg" alt="Assembly / subsystem photo" class="carousel-slide" />
+                <video src="assets/frostbyte-video-placeholder.mp4" poster="assets/frostbyte-video-poster-placeholder.jpg" class="carousel-slide" controls preload="none">
+                  Your browser does not support embedded video.
+                </video>
+                <button class="carousel-btn next" type="button" onclick="moveSlide(this, 1)" aria-label="Next slide">&#10095;</button>
               </div>
             </div>
             <div class="project-content">
-              <div class="meta">Senior Design Capstone Project</div>
+              <div class="meta">Senior Design Capstone Project Aug - Dec 2025</div>
               <h3>FrostByte | Autonomous Snow Removal Robot</h3>
               <p>
                 FrostByte is a senior design capstone project focused on developing an autonomous sidewalk snow removal robot. My work has mainly focused on hardware integration and testing, including bringing together the drivetrain, sensors, power system, and control hardware into a working platform.
@@ -734,15 +730,14 @@
           <article class="project-card" id="integration">
             <div class="project-media">
               <div class="carousel">
-                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                <button class="carousel-btn prev" type="button" onclick="moveSlide(this, -1)" aria-label="Previous slide">&#10094;</button>
                 <img src="assets/Bozopad_Complete.PNG" alt="Complete BOZOPAD" class="carousel-slide active" />
                 <img src="assets/Bozopad_PCB.PNG" alt="BOZOPAD PCB" class="carousel-slide" />
-                <div class="carousel-slide carousel-placeholder">Assembly Instructions<br />assets/MKC_Bozopad_Guide.pdf</div>
-                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                <button class="carousel-btn next" type="button" onclick="moveSlide(this, 1)" aria-label="Next slide">&#10095;</button>
               </div>
             </div>
             <div class="project-content">
-              <div class="meta">Personal Project</div>
+              <div class="meta">Personal Project - Dec 2022</div>
               <h3>//BOZOPAD//</h3>
               <p>
                 BOZOPAD was a personal hardware project focused on designing a small, functional input device from the ground up. The project included PCB design, firmware setup, enclosure design, soldering, assembly, and testing.
@@ -783,7 +778,7 @@
                   </div>
                 </div>
                 <div class="resource-row">
-                  <a href="assets/MKC_Bozopad_Guide.pdf" target="_blank" class="pdf-card">
+                  <a href="assets/MKC_Bozopad_Guide.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card">
                     <strong>Assembly Instructions</strong>
                     <span>View PDF</span>
                   </a>
@@ -802,7 +797,7 @@
           <p>Interested in mechanical design, product development, prototyping, manufacturing, test engineering, mechatronics, robotics, and hardware and software integration roles.</p>
           <p><strong>Email:</strong> <a href="mailto:vuqtruongedu@gmail.com">vuqtruongedu@gmail.com</a></p>
           <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vu-qtruong/" target="_blank">linkedin.com/in/vu-qtruong</a></p>
-          <p><strong>Location:</strong> Beltsville, MD</p>
+          <p><strong>Location:</strong> Silver Spring, MD</p>
           <div class="button-row">
             <a class="button primary" href="mailto:vuqtruongedu@gmail.com">Get in Touch</a>
             <a class="button secondary" href="Vu_Truong_Resume.pdf" target="_blank">Resume</a>
